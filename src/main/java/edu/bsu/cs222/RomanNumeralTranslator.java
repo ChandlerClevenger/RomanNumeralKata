@@ -1,7 +1,7 @@
 package edu.bsu.cs222;
 
 public class RomanNumeralTranslator {
-    public int convertRomanNumeralValue(char romanNumeral) {
+    public int convertRomanNumeralSymbol(char romanNumeral) {
         if (romanNumeral == 'i') {
             return 1;
         } else if (romanNumeral == 'v') {

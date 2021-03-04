@@ -9,14 +9,16 @@ public class RomanNumeralReader {
         int length = romanNumeral.length();
         int total = 0;
         for (int i = 0; i < length; i++) {
+            int currentSymbolValue = romanNumeralTranslator.convertRomanNumeralSymbol(romanNumeral.charAt(i));
             if (((i + 1) < length)) {
-                if (romanNumeralTranslator.convertRomanNumeralValue(romanNumeral.charAt(i)) < romanNumeralTranslator.convertRomanNumeralValue(romanNumeral.charAt(i + 1))) {
-                    total += (-1) * romanNumeralTranslator.convertRomanNumeralValue(romanNumeral.charAt(i));
+                int nextSymbolValue = romanNumeralTranslator.convertRomanNumeralSymbol(romanNumeral.charAt(i + 1));
+                if (currentSymbolValue < nextSymbolValue) {
+                    total -= currentSymbolValue;
                 } else {
-                    total += romanNumeralTranslator.convertRomanNumeralValue(romanNumeral.charAt(i));
+                    total += currentSymbolValue;
                 }
             } else {
-                total += romanNumeralTranslator.convertRomanNumeralValue(romanNumeral.charAt(i));
+                total += currentSymbolValue;
             }
         }
         return total;
